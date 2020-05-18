@@ -1,5 +1,5 @@
 FROM alpine:3.10
 
-COPY actions /actions
+COPY executable-download/executable /executable
 
-ENTRYPOINT ["/actions"]
+ENTRYPOINT ["/executable"]
