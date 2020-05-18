@@ -1,5 +1,5 @@
 FROM alpine:3.10
 
-COPY executable-download/executable /executable
+COPY executable-upload/executable /executable
 
 ENTRYPOINT ["/executable"]
