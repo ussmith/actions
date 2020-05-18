@@ -31,17 +31,25 @@ jobs:
         fi
 
     - name: Build
-      run: go build -v .
+      run: go build -v -o executable . 
 
     - name: Test
       run: go test -v .
+    
+    - name: Upload executable
+      uses: actions/upload-artifact@v1
+      with:
+        name: executable-upload
+        path: executable  
 
   package:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Download executable
+        uses: actions/download-artifact@v1
+        with:
+          name: executable-dowload 
         
       - name: Build the docker Container
         run: |
