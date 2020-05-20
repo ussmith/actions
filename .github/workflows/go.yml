@@ -55,5 +55,10 @@ jobs:
           name: executable-upload
         
       - name: Build the docker Container
-        run: |
-          docker build .
+        uses: docker/build-push-action@v1
+        with: 
+          username: ${{ secrets.NEXUS_USER }}
+          password: ${{ secrets.NEXUS_PASSWORD }}
+          repository: swe/actions-test
+          registry: nexus.ci.psu.edu:5000
+          tags: latest
