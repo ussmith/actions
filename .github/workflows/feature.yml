@@ -1,0 +1,7 @@
+
+name: Go-feature
+
+on:
+  push:
+    branches: 
+      - feature/*
